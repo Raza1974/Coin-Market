@@ -1,10 +1,8 @@
-const path = require('path');
-
-
-
+// next.config.js
 module.exports = {
-  webpack: (config) => {
-    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
-    return config;
+  reactStrictMode: true,
+  images: {
+    domains: ['example.com'], // Replace with your allowed domains
   },
+  experimental: {}, // Add experimental features here if needed
 };

@@ -2,27 +2,141 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--foreground);
+  background-color: var(--background);
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Root variables for colors and global styles */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --radius: 0.75rem;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for elements */
+  }
+
+  /* Dark Mode variables */
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  /* Global Reset for Borders, Padding, and Box Model */
+  * {
+    @apply border-border box-border;
+  }
+
+  /* Global Body Styles */
+  body {
+    @apply bg-background text-foreground font-sans;
+    line-height: 1.6;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  /* Links and Buttons */
+  a, button {
+    @apply text-primary no-underline transition-all duration-300 ease-in-out;
+  }
+
+  /* Hover effects for links and buttons */
+  a:hover, button:hover {
+    @apply text-primary-foreground bg-primary-foreground bg-opacity-20;
+  }
+
+  /* Card and Container Styles */
+  .card {
+    @apply bg-card text-card-foreground p-6 rounded-lg shadow-lg transition-all duration-300 ease-in-out;
+  }
+
+  /* Applying the border-radius and shadow globally for elements */
+  .rounded {
+    @apply rounded-lg shadow-md;
+  }
+
+  /* Input fields */
+  input, textarea {
+    @apply p-4 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  /* Applying soft shadows to the input fields */
+  input, textarea, button {
+    @apply shadow-sm;
+  }
+
+  /* Paragraphs */
+  p {
+    @apply text-base leading-relaxed mb-4;
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-primary font-bold mb-4;
+    letter-spacing: -0.5px;
+  }
+
+  /* Special Card Shadow for Hover Effect */
+  .card:hover {
+    @apply transform scale-105 shadow-2xl;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Add background image and gradient styling for cards */
+.card-gradient {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.1));
+  box-shadow: var(--shadow);
+}
 
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-foreground);
+}
+
+/* Dark Mode Specific Styles */
+@layer base {
+  .dark {
+    background-color: var(--background);
+    color: var(--foreground);
   }
 }
