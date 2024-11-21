@@ -18,7 +18,7 @@ interface CoinData {
  // Updated to use public environment variable
 
   export default function CoinMarketCSR() {
-    const API_KEY = process.env.NEXT_PUBLIC_COIN_LAYER_API_KEY;
+    const API_KEY = "ac1b737a30fffa42ead92558b389096d";
     const [data, setData] = useState<CoinData | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);

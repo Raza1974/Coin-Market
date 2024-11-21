@@ -3,8 +3,7 @@ import Link from "next/link";
 
 export default async function CoinMarketISR() {
  
-   const API_KEY = process.env.NEXT_PUBLIC_COIN_LAYER_API_KEY; // Updated to use public environment variable
-
+  const API_KEY = "ac1b737a30fffa42ead92558b389096d";
   const res = await fetch(`http://api.coinlayer.com/live?access_key=${API_KEY}`, {
       next: { revalidate: 60 }, // Revalidate every 60 seconds
     });
