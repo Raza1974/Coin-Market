@@ -58,7 +58,7 @@ interface CoinData {
   return (
     <>
       <h1><button className="hover:brightness-110 hover:animate-pulse font-bold py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 text-white">
-      Coin Market CSR
+      Coin Market CSR-main
       </button>
       <a className="group inline-block rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75" href="#" title="hi">
       </a></h1>
